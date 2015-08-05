@@ -1,6 +1,6 @@
 {
   "name": "sb-stream-promise",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Convert a stream to a Promise",
   "main": "lib/main.js",
   "scripts": {
