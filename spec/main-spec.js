@@ -22,4 +22,16 @@ describe('StreamPromise', function() {
         })
     })
   })
+  it('rejects promise on stream error', function() {
+    waitsForPromise(function() {
+      let Threw = false
+      return StreamPromise.create(FS.createReadStream(`/etc/some-non-existing-file`))
+        .catch(function(e) {
+          Threw = true
+        })
+        .then(function() {
+          expect(Threw).toBe(true)
+        })
+    })
+  })
 })
