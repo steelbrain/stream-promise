@@ -1,22 +1,31 @@
 Stream-Promise
 ==========
 
-Stream-Promise is a tiny nodejs stream to Promise converter module, and that's pretty much it.
+Stream-Promise is a Node.js stream to Promise conversion module.
+
+#### Installation
+
+```
+npm install --save sb-stream-promise
+```
 
 #### API
+
 ```js
-class StreamPromise {
-  static create(Stream):Promise<string>
-}
+export default function createdefaultPromise(stream: Stream, bytesLimit: ?number)
 ```
 
 #### Example
 ```js
-const StreamPromise = require('sb-stream-promise')
 const FS = require('fs')
-StreamPromise.create(FS.createReadStream(`/etc/passwd`))
+const createStreamPromise = require('sb-stream-promise')
+
+createStreamPromise(FS.createReadStream(`/etc/passwd`))
   .then(function(contents) {
     console.log(contents)
+  })
+  .catch(function(error) {
+    console.error('unable to read file', error)
   })
 ```
 
