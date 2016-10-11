@@ -14,8 +14,9 @@ function createStreamPromise(stream: Object, bytesLimit: ?number): Promise<strin
       if (dataLength > bytesLimit) {
         data = null
         reject(new Error('Stream body too big'))
+      } else {
+        data.push(chunk)
       }
-      data.push(chunk)
     })
 
     stream.on('error', function(error) {
@@ -23,7 +24,9 @@ function createStreamPromise(stream: Object, bytesLimit: ?number): Promise<strin
       reject(error)
     })
     stream.on('end', function() {
-      resolve(data.join(''))
+      if (data) {
+        resolve(data.join(''))
+      }
     })
   })
 }
