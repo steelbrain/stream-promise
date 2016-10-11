@@ -1,6 +1,6 @@
 /* @flow */
 
-export default function createStreamPromise(stream: Object, bytesLimit: ?number): Promise<string> {
+function createStreamPromise(stream: Object, bytesLimit: ?number): Promise<string> {
   return new Promise(function(resolve, reject) {
     let data = []
     let dataLength = 0
@@ -27,3 +27,5 @@ export default function createStreamPromise(stream: Object, bytesLimit: ?number)
     })
   })
 }
+
+module.exports = createStreamPromise
