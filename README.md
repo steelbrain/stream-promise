@@ -12,7 +12,7 @@ npm install --save sb-stream-promise
 #### API
 
 ```js
-export default function createdefaultPromise(stream: Stream, bytesLimit: ?number)
+export default function createStreamPromise(stream: Stream, bytesLimit: ?number)
 ```
 
 #### Example
