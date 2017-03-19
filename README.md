@@ -1,6 +1,8 @@
 Stream-Promise
 ==========
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/steelbrain/stream-promise.svg)](https://greenkeeper.io/)
+
 Stream-Promise is a Node.js stream to Promise conversion module.
 
 #### Installation
